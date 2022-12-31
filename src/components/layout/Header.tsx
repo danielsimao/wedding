@@ -39,7 +39,7 @@ export default function Header() {
       className='sticky top-0 z-50 bg-white'
     >
       <div className='layout flex h-14 items-center justify-between'>
-        <UnstyledLink href='/' className='font-bold hover:text-gray-600'>
+        <UnstyledLink href='/' className='cinzel font-bold hover:text-gray-600'>
           Sophie & Daniel
         </UnstyledLink>
         <nav>
