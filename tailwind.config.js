@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],
+        cinzel: ['Cinzel', ...fontFamily.serif],
       },
       colors: {
         primary: {
