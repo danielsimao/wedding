@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
 import Layout from '@/components/layout/Layout';
+import Countdown from '@/components/Sections/Countdown';
 import DoubleTile from '@/components/Sections/DoubleTile';
 import Seo from '@/components/Seo';
 
@@ -25,51 +25,12 @@ import Phone from '../../public/svg/phone.svg';
 // to customize the default configuration.
 
 export default function HomePage() {
-  const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-
-  useEffect(() => {
-    const target = new Date('04/07/2023 13:30:00');
-
-    const interval = setInterval(() => {
-      const now = new Date();
-      const difference = target.getTime() - now.getTime();
-
-      const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-      setDays(d);
-
-      const h = Math.floor(
-        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      setHours(h);
-
-      const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      setMinutes(m);
-
-      const s = Math.floor((difference % (1000 * 60)) / 1000);
-      setSeconds(s);
-
-      // if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {
-      //   setPartyTime(true);
-      // }
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
-      <main>
-        <section id='home' className='relative h-screen max-h-screen'>
-          <div className='absolute top-1/3 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform'>
-            <h1 className='text text-center text-white md:text-6xl'>
-              We are going to marry
-            </h1>
-          </div>
+      <main className='-mt-16'>
+        <section id='home' className='relative h-screen max-h-screen md:mb-32'>
           <Image
             src='/images/hero.png'
             fill
@@ -97,25 +58,11 @@ export default function HomePage() {
                 <p className='font-bold'>Quinta da Morgadinha</p>
                 <p>R. Pedro Álvares Cabral 345, 4435-448 Rio Tinto</p>
               </div>
-              <button className='border-1 mt-12 rounded-md border border-black px-4 py-2 text-lg hover:border-slate-800 hover:bg-slate-50'>
-                Save the Date
+              <button className='border-1 rounded-md border border-black px-4 py-2 text-sm transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 md:mt-12'>
+                Deste dia não me posso esquecer...
               </button>
             </div>
-            <div className='flex flex-[1] flex-col items-center justify-center text-center'>
-              <p>
-                Vamos ser felizes para sempre, <br /> dentro de:
-              </p>
-              <p className='text-2xl font-bold'>
-                <span className='mr-[0.1rem]'>{days}</span>
-                <span className='mr-3 text-base'>Dias</span>
-                <span className='mr-[0.1rem]'>{hours}</span>
-                <span className='mr-1 text-base'>H</span>
-                <span className='mr-[0.1rem]'>{minutes}</span>
-                <span className='mr-1 text-base'>M</span>
-                <span className='mr-[0.1rem]'>{seconds}</span>
-                <span className='text-base'>S</span>
-              </p>
-            </div>
+            <Countdown />
           </DoubleTile>
           <DoubleTile
             reverse
@@ -145,7 +92,7 @@ export default function HomePage() {
             </div>
           </DoubleTile>
         </div>
-        <section id='galery' className='layout my-32'>
+        <section id='galery' className='layout py-16'>
           <div className='m-auto grid h-full max-w-[300px] grid-cols-1 grid-rows-5 gap-6 md:max-w-5xl md:grid-cols-3 md:grid-rows-2'>
             <div className='relative md:row-span-2'>
               <Image
@@ -204,55 +151,58 @@ export default function HomePage() {
         </section>
         <section
           id='contacts'
-          className='flex flex-col gap-16 bg-[#F3EAEA] py-24 px-6 text-center'
+          className='flex flex-col gap-16 py-12 text-center'
         >
-          <div>
-            <h2>Esperamos poder contar contigo!</h2>
-            <p className='mt-2'>
-              Por favor, confirme a sua presença até{' '}
-              <strong>7 de Março, 2023</strong>. <br />
-              Estamos ansiosos de celebrar este dia contigo.
-            </p>
-          </div>
-          <div className='flex flex-col justify-evenly gap-6 md:flex-row'>
-            <div className='flex flex-col gap-2'>
-              <h3>Sophie</h3>
-              <ul className='flex flex-col gap-1 self-center'>
-                <li className='flex items-center gap-2'>
-                  <AtSymbol /> sophiepousinho@gmai.com
-                </li>
-                <li className='flex items-center gap-2'>
-                  <Phone /> 924 109 640
-                </li>
-              </ul>
+          <div className='flex flex-col gap-10 bg-[#F3EAEA] px-6 py-24 md:gap-16'>
+            <div>
+              <h2>Esperamos poder contar contigo!</h2>
+              <p className='mt-2'>
+                Por favor, confirme a sua presença até{' '}
+                <strong>7 de Março, 2023</strong>. <br />
+                Estamos ansiosos de celebrar este dia contigo.
+              </p>
             </div>
-            <div className='flex flex-col gap-2'>
-              <h3>Daniel</h3>
-              <ul className='flex flex-col gap-1 self-center'>
-                <li className='flex items-center gap-2'>
-                  <AtSymbol /> rui.daniel.simao@gmail.com
-                </li>
-                <li className='flex items-center gap-2'>
-                  <Phone /> 916 961 068
-                </li>
-              </ul>
+            <div className='flex flex-col justify-evenly gap-6 md:flex-row'>
+              <div className='flex flex-col gap-2'>
+                <h3>Sophie</h3>
+                <ul className='flex flex-col gap-1 self-center'>
+                  <li className='flex items-center gap-2'>
+                    <AtSymbol /> sophiepousinho@gmai.com
+                  </li>
+                  <li className='flex items-center gap-2'>
+                    <Phone /> 924 109 640
+                  </li>
+                </ul>
+              </div>
+              <div className='flex flex-col gap-2'>
+                <h3>Daniel</h3>
+                <ul className='flex flex-col gap-1 self-center'>
+                  <li className='flex items-center gap-2'>
+                    <AtSymbol /> rui.daniel.simao@gmail.com
+                  </li>
+                  <li className='flex items-center gap-2'>
+                    <Phone /> 916 961 068
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
-        <section className='layout my-24 grid grid-cols-1 grid-rows-2 gap-6 text-center lg:grid-cols-2 lg:grid-rows-1'>
+        <section className='layout grid grid-cols-1 grid-rows-2 gap-6 py-16 text-center lg:grid-cols-2 lg:grid-rows-1'>
           <div className='flex flex-col items-center justify-center gap-8'>
             <Gift className='h-16 w-16' />
-            <div className='max-w-lg'>
+            <div className='max-w-md'>
               <p>
                 A tua presença é-nos mais importante do que qualquer presente
                 que algumas vez nos pudesses dar.
               </p>
+              <br />
               <p>
                 Porém, se for da tua vontade apoiar-nos neste novo capítulo das
                 nossas vidas, deixamos aqui formas de o conseguires.
               </p>
             </div>
-            <div className='flex flex-col gap-6'>
+            <div className='flex flex-col gap-12 md:my-10 md:flex-row'>
               <div className='flex flex-col gap-2'>
                 <h3>Monetário</h3>
                 <ul className='flex flex-col gap-1'>
@@ -278,7 +228,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className='flex items-center justify-center'>
-            <div className='relative h-[400px] w-[400px]'>
+            <div className='relative h-[300px] w-[300px] md:h-[400px] md:w-[400px]'>
               <Image
                 src='/images/holding-hands-ring.png'
                 fill

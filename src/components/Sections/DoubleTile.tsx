@@ -20,13 +20,13 @@ const DoubleTile = ({
 }: DoubleTileProps) => {
   return (
     <section
-      className='grid min-h-screen w-screen grid-rows-2 md:grid-cols-2 md:grid-rows-1'
+      className='grid min-h-screen w-screen grid-rows-2 last-of-type:pb-16 md:grid-cols-2 md:grid-rows-1 md:py-8'
       {...props}
     >
       <div
         className={`relative ${
-          reverse ? 'order-2' : 'order-2 md:order-1'
-        } h-full w-full `}
+          reverse ? 'order-2 md:ml-6' : 'order-2 md:order-1 md:-ml-6'
+        } h-full w-full md:overflow-hidden md:rounded-2xl`}
       >
         <Image
           src={imageSrc}

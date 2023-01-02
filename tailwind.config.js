@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],
         cinzel: ['Cinzel', ...fontFamily.serif],
+        vibes: ['GreatVibes', ...fontFamily.serif],
       },
       colors: {
         primary: {

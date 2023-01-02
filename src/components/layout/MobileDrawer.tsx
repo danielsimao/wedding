@@ -51,10 +51,7 @@ const MobileDrawer = ({
                           onClick={(e) => {
                             e.preventDefault();
 
-                            const scroll = () =>
-                              document
-                                .getElementById(href.replace('#', ''))
-                                ?.scrollIntoView();
+                            const scroll = () => window.open(href, '_self');
 
                             onNavigate(scroll);
                           }}

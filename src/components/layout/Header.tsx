@@ -31,6 +31,15 @@ export default function Header() {
 
   const lottieRef: LottieRef = React.useRef(null);
 
+  const heroRef = React.useRef<HTMLElement | null>();
+  const [isOutsideHero, setOutsideHero] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!heroRef.current) {
+      heroRef.current = document.getElementById('home');
+    }
+  }, []);
+
   React.useEffect(() => {
     lottieRef.current?.setSpeed(1.5);
   }, [lottieRef]);
@@ -41,6 +50,12 @@ export default function Header() {
 
       setVisible(position > moving);
       setPosition(moving);
+
+      //////
+
+      setOutsideHero(
+        (heroRef.current?.clientHeight || 0) * 0.8 < window.pageYOffset
+      );
     };
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -76,23 +91,29 @@ export default function Header() {
     <header
       ref={ref}
       style={{
-        transition: 'top 0.4s ease-out',
         top: visible ? 0 : `-${ref.current?.clientHeight}px`,
       }}
-      className='sticky top-0 z-50 min-h-[56px] bg-white'
+      className={clsx(
+        'sticky z-50 min-h-[64px] bg-white transition-all ease-in-out',
+        isOutsideHero ? 'bg-white' : 'bg-transparent'
+      )}
     >
-      <div className={isOpen ? 'fixed top-0 left-0 right-0 bg-white' : ''}>
-        <div className={clsx('layout flex h-14 items-center justify-between')}>
+      <div
+        className={clsx(
+          isOpen ? 'fixed top-0 left-0 right-0 bg-white' : undefined
+        )}
+      >
+        <div className='layout flex items-center justify-between py-2 md:py-0'>
           <UnstyledLink
             href='/'
-            className='cinzel font-bold hover:text-gray-600'
+            className='font-vibes font-bold hover:text-gray-600'
           >
             Sophie & Daniel
           </UnstyledLink>
           <div className='inline-flex md:hidden '>
             <button
               disabled={isDisabled}
-              className='text-2xl'
+              className='p-3 text-2xl'
               onClick={handleClick}
             >
               <Lottie
@@ -113,12 +134,12 @@ export default function Header() {
             />
           </div>
           <nav className='hidden md:flex'>
-            <ul className='cinzel flex items-center justify-between space-x-4'>
+            <ul className=' flex items-center justify-between space-x-4 font-semibold uppercase'>
               {links.map(({ href, label }) => (
-                <li key={`${href}${label}`}>
+                <li key={`${href}${label}`} className='py-5'>
                   <UnstyledLink
                     href={href}
-                    className='cinzel hover:text-gray-600'
+                    className='py-5 font-cinzel hover:text-gray-600'
                   >
                     {label}
                   </UnstyledLink>
