@@ -20,7 +20,7 @@ const DoubleTile = ({
 }: DoubleTileProps) => {
   return (
     <section
-      className='grid min-h-screen w-screen grid-rows-2 last-of-type:pb-16 md:grid-cols-2 md:grid-rows-1 md:py-8'
+      className='grid min-h-screen w-screen grid-rows-2 overflow-hidden last-of-type:pb-16 md:grid-cols-2 md:grid-rows-1 md:py-8'
       {...props}
     >
       <div
@@ -31,7 +31,7 @@ const DoubleTile = ({
         <Image
           src={imageSrc}
           fill
-          // sizes='100vw'
+          sizes='(min-width: 768px) 50vw, 100vw'
           style={{
             objectFit: 'cover',
           }}

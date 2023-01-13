@@ -34,7 +34,7 @@ const MobileDrawer = ({
       {isOpen &&
         createPortal(
           <div>
-            <div className='fixed inset-0 z-10 box-border overflow-auto text-center'>
+            <div className='fixed inset-0 z-10 box-border overflow-auto text-center md:hidden'>
               <div
                 className={clsx(
                   'drawer bg-white',
@@ -47,7 +47,7 @@ const MobileDrawer = ({
                       <li key={`${href}${label}`}>
                         <a
                           href={href}
-                          className=' hover:text-gray-600'
+                          className='font-alice hover:text-gray-600'
                           onClick={(e) => {
                             e.preventDefault();
 

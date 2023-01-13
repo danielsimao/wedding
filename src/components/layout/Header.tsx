@@ -87,6 +87,22 @@ export default function Header() {
     }
   };
 
+  React.useEffect(() => {
+    if (isOutsideHero || isOpen) {
+      ref.current?.querySelectorAll('path').forEach((path) => {
+        if (path.getAttribute('stroke')) {
+          path.setAttribute('stroke', 'rgb(0,0,0)');
+        }
+      });
+    } else {
+      ref.current?.querySelectorAll('path').forEach((path) => {
+        if (path.getAttribute('stroke')) {
+          path.setAttribute('stroke', 'rgb(250,250,250)');
+        }
+      });
+    }
+  }, [isOutsideHero, isOpen]);
+
   return (
     <header
       ref={ref}
@@ -94,19 +110,16 @@ export default function Header() {
         top: visible ? 0 : `-${ref.current?.clientHeight}px`,
       }}
       className={clsx(
-        'sticky z-50 min-h-[64px] bg-white transition-all ease-in-out',
-        isOutsideHero ? 'bg-white text-dark' : 'bg-transparent text-white'
+        'sticky z-50 min-h-[64px] transition-all ease-in-out',
+        isOutsideHero ? 'bg-white' : 'bg-transparent',
+        isOpen || isOutsideHero ? 'text-dark' : 'text-white'
       )}
     >
-      <div
-        className={clsx(
-          isOpen ? 'fixed top-0 left-0 right-0 bg-white' : undefined
-        )}
-      >
+      <div className={clsx(isOpen ? 'fixed top-0 left-0 right-0 ' : undefined)}>
         <div className='layout flex items-center justify-between py-2 md:py-0'>
           <UnstyledLink
             href='/'
-            className='font-alice text-2xl font-bold hover:text-gray-600'
+            className='font-alice text-2xl font-bold text-inherit hover:text-gray-600'
           >
             S<span className='mx-[.2rem] text-sm'>&</span>D
           </UnstyledLink>

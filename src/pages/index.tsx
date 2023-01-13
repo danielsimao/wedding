@@ -1,3 +1,4 @@
+import { AddToCalendarButton } from 'add-to-calendar-button-react';
 import Image from 'next/image';
 
 import Layout from '@/components/layout/Layout';
@@ -34,6 +35,7 @@ export default function HomePage() {
           <Image
             src='/images/hero.png'
             fill
+            priority
             sizes='100vw'
             style={{
               objectFit: 'cover',
@@ -60,9 +62,19 @@ export default function HomePage() {
                 <p className='font-bold'>Quinta da Morgadinha</p>
                 <p>R. Pedro Álvares Cabral 345, 4435-448 Rio Tinto</p>
               </div>
-              <button className='border-1 rounded-md border border-black px-4 py-2 text-sm transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 md:mt-12'>
+              {/* <button className='border-1 rounded-md border border-black px-4 py-2 text-sm transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 md:mt-12'>
                 Deste dia não me posso esquecer...
-              </button>
+              </button> */}
+              <AddToCalendarButton
+                name='💒 Casamento Sophie & Daniel'
+                description='Lembrete para não me esquecer de vestir todo(a) janotas para o casamento mais especial do dia 7 de Abril de 2023. Também serve para lembrar que sou um máximo ❤️'
+                startDate='04-07-2023'
+                endDate='04-07-2023'
+                startTime='13:30'
+                timeZone='Europe/Lisbon'
+                endTime='23:59'
+                options={['Google']}
+              />
             </div>
             <Countdown />
           </DoubleTile>
@@ -76,7 +88,7 @@ export default function HomePage() {
               <h2 className='font-alice text-lg font-normal md:text-2xl'>
                 Sobre Nós
               </h2>
-              <p className='flex flex-col gap-2 text-left'>
+              <p className='font-inter flex flex-col gap-2 text-left'>
                 <span>
                   Conhecemo-nos a 25 de Julho, 2016 e a verdade é que não foi
                   amor à primeira vista. Foi uma amizade que cresceu durante
@@ -102,6 +114,7 @@ export default function HomePage() {
               <Image
                 src='/images/hugging-look.png'
                 fill
+                sizes='300px'
                 style={{
                   objectFit: 'cover',
                   objectPosition: '50% 20%',
@@ -113,6 +126,7 @@ export default function HomePage() {
               <Image
                 src='/images/showing-ring.png'
                 fill
+                sizes='300px'
                 style={{
                   objectFit: 'cover',
                 }}
@@ -123,6 +137,7 @@ export default function HomePage() {
               <Image
                 src='/images/walking-narrow.png'
                 fill
+                sizes='300px'
                 style={{
                   objectFit: 'cover',
                 }}
@@ -133,6 +148,7 @@ export default function HomePage() {
               <Image
                 src='/images/resting-heads.png'
                 fill
+                sizes='300px'
                 style={{
                   objectFit: 'cover',
                   objectPosition: 'bottom',
@@ -144,6 +160,7 @@ export default function HomePage() {
               <Image
                 src='/images/loving-stair.png'
                 fill
+                sizes='300px'
                 style={{
                   objectFit: 'cover',
                 }}
@@ -155,9 +172,9 @@ export default function HomePage() {
         </section>
         <section
           id='contacts'
-          className='flex flex-col gap-16 py-12 text-center'
+          className='flex flex-col gap-16 py-12 text-center '
         >
-          <div className='flex flex-col gap-10 bg-[#F3EAEA] px-6 py-24 md:gap-16'>
+          <div className='flex flex-col items-center gap-10 bg-[#F3EAEA] px-6 py-24 md:gap-16'>
             <div>
               <h2>Esperamos poder contar contigo!</h2>
               <p className='mt-2'>
@@ -166,7 +183,7 @@ export default function HomePage() {
                 Estamos ansiosos de celebrar este dia contigo.
               </p>
             </div>
-            <div className='flex flex-col justify-evenly gap-6 md:flex-row'>
+            <div className='flex flex-col justify-evenly gap-12 md:flex-row'>
               <div className='flex flex-col gap-2'>
                 <h3>Sophie</h3>
                 <ul className='flex flex-col gap-1 self-center'>
@@ -236,6 +253,7 @@ export default function HomePage() {
               <Image
                 src='/images/holding-hands-ring.png'
                 fill
+                sizes='400px'
                 style={{
                   objectFit: 'cover',
                 }}
