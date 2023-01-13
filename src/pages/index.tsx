@@ -29,7 +29,7 @@ export default function HomePage() {
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
-      <main className='-mt-16'>
+      <main className='-mt-[68px]'>
         <section id='home' className='relative h-screen max-h-screen md:mb-32'>
           <Image
             src='/images/hero.png'
@@ -49,7 +49,9 @@ export default function HomePage() {
             id='where-and-when'
           >
             <div className='flex flex-[3] flex-col items-center justify-center gap-5'>
-              <h2 className='text-lg font-normal md:text-xl'>Onde & Quando</h2>
+              <h2 className='font-alice text-lg font-normal md:text-2xl'>
+                Onde & Quando
+              </h2>
               <h2 className='text-center text-xl md:text-4xl'>
                 7 de Abril, 2023 <br />
                 13h30
@@ -71,7 +73,9 @@ export default function HomePage() {
             imageClassName='object-[25%]'
           >
             <div className='flex h-full max-w-sm flex-col items-center justify-center gap-5'>
-              <h2 className='text-lg font-normal md:text-xl'>Sobre Nós</h2>
+              <h2 className='font-alice text-lg font-normal md:text-2xl'>
+                Sobre Nós
+              </h2>
               <p className='flex flex-col gap-2 text-left'>
                 <span>
                   Conhecemo-nos a 25 de Julho, 2016 e a verdade é que não foi

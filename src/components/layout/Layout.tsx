@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <Header />
       {children}
-      <footer className='bg-[#F3EAEA] px-4 py-12 text-center text-xl font-bold text-gray-700'>
+      <footer className='bg-[#F3EAEA] px-4 py-12 text-center font-alice text-2xl font-bold text-gray-700'>
         Sophie & Daniel
       </footer>
     </>

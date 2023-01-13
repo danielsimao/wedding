@@ -16,9 +16,16 @@ class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
-          <link
+          {/* <link
             rel='preload'
             href='/fonts/inter-var-latin.woff2'
+            as='font'
+            type='font/woff2'
+            crossOrigin='anonymous'
+          /> */}
+          <link
+            rel='preload'
+            href='/fonts/Alice-Regular.woff2'
             as='font'
             type='font/woff2'
             crossOrigin='anonymous'

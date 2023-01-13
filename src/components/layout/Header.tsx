@@ -95,7 +95,7 @@ export default function Header() {
       }}
       className={clsx(
         'sticky z-50 min-h-[64px] bg-white transition-all ease-in-out',
-        isOutsideHero ? 'bg-white' : 'bg-transparent'
+        isOutsideHero ? 'bg-white text-dark' : 'bg-transparent text-white'
       )}
     >
       <div
@@ -106,9 +106,9 @@ export default function Header() {
         <div className='layout flex items-center justify-between py-2 md:py-0'>
           <UnstyledLink
             href='/'
-            className='font-vibes font-bold hover:text-gray-600'
+            className='font-alice text-2xl font-bold hover:text-gray-600'
           >
-            Sophie & Daniel
+            S<span className='mx-[.2rem] text-sm'>&</span>D
           </UnstyledLink>
           <div className='inline-flex md:hidden '>
             <button
@@ -134,12 +134,12 @@ export default function Header() {
             />
           </div>
           <nav className='hidden md:flex'>
-            <ul className=' flex items-center justify-between space-x-4 font-semibold uppercase'>
+            <ul className='flex items-center justify-between gap-6 font-semibold'>
               {links.map(({ href, label }) => (
                 <li key={`${href}${label}`} className='py-5'>
                   <UnstyledLink
                     href={href}
-                    className='py-5 font-cinzel hover:text-gray-600'
+                    className='py-5 font-alice text-lg font-semibold hover:text-gray-600'
                   >
                     {label}
                   </UnstyledLink>
