@@ -2,6 +2,7 @@ import { AddToCalendarButton } from 'add-to-calendar-button-react';
 import Image from 'next/image';
 
 import Layout from '@/components/layout/Layout';
+import UnstyledLink from '@/components/links/UnstyledLink';
 import Countdown from '@/components/Sections/Countdown';
 import DoubleTile from '@/components/Sections/DoubleTile';
 import Seo from '@/components/Seo';
@@ -92,16 +93,12 @@ export default function HomePage() {
                 <span>
                   Conhecemo-nos a 25 de Julho, 2016 e a verdade é que não foi
                   amor à primeira vista. Foi uma amizade que cresceu durante
-                  três anos e com ela amor, que nos fez começar a namorar a 5 de
-                  Outubro 2019.
+                  três anos e com ela o amor, que nos fez começar a namorar a 5
+                  de Outubro 2019.
                 </span>
                 <span>
-                  Queremos agora dar o nó final, depois três anos de namoro,
-                  importantes para que o nó seja perfeito e inquebrável.
-                </span>
-                <span>
-                  Acreditamos que todo este trajecto foi graças ao Senhor, que
-                  nos tem vindo a preparar para participar numa das suas
+                  Acreditamos que todo este trajeto foi graças ao Senhor, que
+                  nos tem vindo a preparar para participar numa das Suas
                   maravilhosas criações, o casamento.
                 </span>
               </p>
@@ -178,7 +175,7 @@ export default function HomePage() {
             <div>
               <h2>Esperamos poder contar contigo!</h2>
               <p className='mt-2'>
-                Por favor, confirme a sua presença até{' '}
+                Por favor, confirma a tua presença até{' '}
                 <strong>7 de Março, 2023</strong>. <br />
                 Estamos ansiosos de celebrar este dia contigo.
               </p>
@@ -188,7 +185,13 @@ export default function HomePage() {
                 <h3>Sophie</h3>
                 <ul className='flex flex-col gap-1 self-center'>
                   <li className='flex items-center gap-2'>
-                    <AtSymbol /> sophiepousinho@gmai.com
+                    <AtSymbol />{' '}
+                    <UnstyledLink
+                      openNewTab
+                      href='mailto:sophiepousinho@gmai.com'
+                    >
+                      sophiepousinho@gmai.com
+                    </UnstyledLink>
                   </li>
                   <li className='flex items-center gap-2'>
                     <Phone /> 924 109 640
@@ -199,7 +202,13 @@ export default function HomePage() {
                 <h3>Daniel</h3>
                 <ul className='flex flex-col gap-1 self-center'>
                   <li className='flex items-center gap-2'>
-                    <AtSymbol /> rui.daniel.simao@gmail.com
+                    <AtSymbol />{' '}
+                    <UnstyledLink
+                      openNewTab
+                      href='mailto:rui.daniel.simao@gmai.com'
+                    >
+                      rui.daniel.simao@gmai.com
+                    </UnstyledLink>
                   </li>
                   <li className='flex items-center gap-2'>
                     <Phone /> 916 961 068
