@@ -161,7 +161,7 @@ export default function HomePage() {
                 style={{
                   objectFit: 'cover',
                 }}
-                className='object-[20%] md:object-[35%]'
+                className='object-[35%]'
                 alt='main'
               />
             </div>
@@ -177,7 +177,7 @@ export default function HomePage() {
               <p className='mt-2'>
                 Por favor, confirma a tua presença até{' '}
                 <strong>7 de Março, 2023</strong>. <br />
-                Estamos ansiosos de celebrar este dia contigo.
+                Estamos ansiosos por celebrar este dia contigo.
               </p>
             </div>
             <div className='flex flex-col justify-evenly gap-12 md:flex-row'>
@@ -188,9 +188,9 @@ export default function HomePage() {
                     <AtSymbol />{' '}
                     <UnstyledLink
                       openNewTab
-                      href='mailto:sophiepousinho@gmai.com'
+                      href='mailto:sophiepousinho@gmail.com'
                     >
-                      sophiepousinho@gmai.com
+                      sophiepousinho@gmail.com
                     </UnstyledLink>
                   </li>
                   <li className='flex items-center gap-2'>
@@ -205,9 +205,9 @@ export default function HomePage() {
                     <AtSymbol />{' '}
                     <UnstyledLink
                       openNewTab
-                      href='mailto:rui.daniel.simao@gmai.com'
+                      href='mailto:rui.daniel.simao@gmail.com'
                     >
-                      rui.daniel.simao@gmai.com
+                      rui.daniel.simao@gmail.com
                     </UnstyledLink>
                   </li>
                   <li className='flex items-center gap-2'>
@@ -247,7 +247,7 @@ export default function HomePage() {
               <div className='flex flex-col gap-2'>
                 <div>
                   <h3>Lista de Presentes</h3>
-                  <p className='text-xs'>(disponível a partir de 01/02)</p>
+                  <p className='text-xs'>(disponível a partir de 06/02)</p>
                 </div>
                 <ul className='flex flex-col gap-1'>
                   <li className='flex items-center justify-center gap-2'>
