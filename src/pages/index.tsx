@@ -219,7 +219,7 @@ export default function HomePage() {
           </div>
         </section>
         <section className='layout grid grid-cols-1 grid-rows-2 gap-6 py-16 text-center lg:grid-cols-2 lg:grid-rows-1'>
-          <div className='flex flex-col items-center justify-center gap-8'>
+          <div className='gxap-8 flex flex-col items-center justify-center'>
             <Gift className='h-16 w-16' />
             <div className='max-w-md'>
               <p>
@@ -247,11 +247,19 @@ export default function HomePage() {
               <div className='flex flex-col gap-2'>
                 <div>
                   <h3>Lista de Presentes</h3>
-                  <p className='text-xs'>(disponível a partir de 06/02)</p>
+                  {}
+                  {/* <p className='text-xs'>(disponível a partir de 06/02)</p> */}
                 </div>
                 <ul className='flex flex-col gap-1'>
                   <li className='flex items-center justify-center gap-2'>
-                    <Ikea className='h-12 w-24' />
+                    <UnstyledLink
+                      aria-label='Lista presente Ikea'
+                      className='flex flex-col'
+                      href='https://www.ikea.com/pt/pt/gift-registry/guest/?id=2a1ce35f-e2b2-4fc4-9b38-9e7d2799a446'
+                    >
+                      <Ikea className='h-12 w-24' />
+                      <span className='text-xs underline'>Visitar</span>
+                    </UnstyledLink>
                   </li>
                 </ul>
               </div>
