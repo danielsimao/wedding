@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import Lottie, { LottieRef } from 'lottie-react';
+import { useRouter } from 'next/router';
 import * as React from 'react';
 
 import MobileDrawer from '@/components/layout/MobileDrawer';
@@ -33,6 +34,9 @@ export default function Header() {
 
   const heroRef = React.useRef<HTMLElement | null>();
   const [isOutsideHero, setOutsideHero] = React.useState(false);
+
+  const router = useRouter();
+  const isHome = router.pathname === '/';
 
   React.useEffect(() => {
     if (!heroRef.current) {
@@ -88,7 +92,7 @@ export default function Header() {
   };
 
   React.useEffect(() => {
-    if (isOutsideHero || isOpen) {
+    if (isOutsideHero || isOpen || !isHome) {
       ref.current?.querySelectorAll('path').forEach((path) => {
         if (path.getAttribute('stroke')) {
           path.setAttribute('stroke', 'rgb(0,0,0)');
@@ -101,7 +105,7 @@ export default function Header() {
         }
       });
     }
-  }, [isOutsideHero, isOpen]);
+  }, [isOutsideHero, isOpen, isHome]);
 
   return (
     <header
@@ -111,55 +115,59 @@ export default function Header() {
       }}
       className={clsx(
         'sticky z-50 min-h-[64px] transition-all ease-in-out',
-        isOutsideHero ? 'bg-white' : 'bg-transparent',
-        isOpen || isOutsideHero ? 'text-dark' : 'text-white'
+        isOutsideHero || !isHome ? 'bg-white' : 'bg-transparent',
+        isOpen || isOutsideHero || !isHome ? 'text-dark' : 'text-white'
       )}
     >
-      <div className={clsx(isOpen ? 'fixed top-0 left-0 right-0 ' : undefined)}>
-        <div className='layout flex items-center justify-between py-2 md:py-0'>
+      <div className={clsx(isOpen ? 'fixed top-0 left-0 right-0' : undefined)}>
+        <div className='layout flex min-h-[64px] items-center justify-between py-2 md:py-0'>
           <UnstyledLink
             href='/'
             className='font-alice text-2xl font-bold text-inherit hover:text-gray-600'
           >
             S<span className='mx-[.2rem] text-sm'>&</span>D
           </UnstyledLink>
-          <div className='inline-flex md:hidden '>
-            <button
-              disabled={isDisabled}
-              className='p-3 text-2xl'
-              onClick={handleClick}
-            >
-              <Lottie
-                as='span'
-                loop={false}
-                autoplay={false}
-                lottieRef={lottieRef}
-                style={{ width: '1em', height: '1em' }}
-                animationData={burgerJSON}
-                onComplete={() => setDisabled(false)}
-              />
-            </button>
-            <MobileDrawer
-              links={links}
-              isAnimating={isAnimating}
-              isOpen={isOpen}
-              onNavigate={handleCloseDrawer}
-            />
-          </div>
-          <nav className='hidden md:flex'>
-            <ul className='flex items-center justify-between gap-6 font-semibold'>
-              {links.map(({ href, label }) => (
-                <li key={`${href}${label}`} className='py-5'>
-                  <UnstyledLink
-                    href={href}
-                    className='py-5 font-alice text-lg font-semibold hover:text-gray-600'
-                  >
-                    {label}
-                  </UnstyledLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          {isHome && (
+            <>
+              <div className='inline-flex md:hidden'>
+                <button
+                  disabled={isDisabled}
+                  className='p-3 text-2xl'
+                  onClick={handleClick}
+                >
+                  <Lottie
+                    as='span'
+                    loop={false}
+                    autoplay={false}
+                    lottieRef={lottieRef}
+                    style={{ width: '1em', height: '1em' }}
+                    animationData={burgerJSON}
+                    onComplete={() => setDisabled(false)}
+                  />
+                </button>
+                <MobileDrawer
+                  links={links}
+                  isAnimating={isAnimating}
+                  isOpen={isOpen}
+                  onNavigate={handleCloseDrawer}
+                />
+              </div>
+              <nav className='hidden md:flex'>
+                <ul className='flex items-center justify-between gap-6 font-semibold'>
+                  {links.map(({ href, label }) => (
+                    <li key={`${href}${label}`} className='py-5'>
+                      <UnstyledLink
+                        href={href}
+                        className='py-5 font-alice text-lg font-semibold hover:text-gray-600'
+                      >
+                        {label}
+                      </UnstyledLink>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </>
+          )}
         </div>
       </div>
     </header>
