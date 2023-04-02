@@ -13,6 +13,8 @@ const Countdown = () => {
       const now = new Date();
       const difference = target.getTime() - now.getTime();
 
+      if (difference <= 0) return;
+
       const d = Math.floor(difference / (1000 * 60 * 60 * 24));
       setDays(d);
 

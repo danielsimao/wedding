@@ -115,8 +115,16 @@ export default function Header() {
       }}
       className={clsx(
         'sticky z-50 min-h-[64px] transition-all ease-in-out',
-        isOutsideHero || !isHome ? 'bg-white' : 'bg-transparent',
-        isOpen || isOutsideHero || !isHome ? 'text-dark' : 'text-white'
+        isHome
+          ? isOutsideHero
+            ? 'bg-white'
+            : 'bg-transparent'
+          : 'bg-[#F3EAEA]',
+        isHome
+          ? isOpen || isOutsideHero
+            ? 'text-dark'
+            : 'text-white'
+          : 'text-gray-700'
       )}
     >
       <div className={clsx(isOpen ? 'fixed top-0 left-0 right-0' : undefined)}>

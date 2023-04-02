@@ -34,12 +34,16 @@ export default function HomePage() {
   return (
     <Layout>
       <Seo />
-      <main className='-mt-[68px] flex flex-col items-center gap-6 px-6'>
+      <main className='-mt-[68px] flex flex-col items-center gap-6'>
+        <div className='flex min-h-[50vh] w-full items-center justify-center bg-[#F3EAEA]'>
+          <h1 className='alice font-alice text-3xl text-gray-700'>
+            Ordem de Cerimónia
+          </h1>
+        </div>
         <section
           id='home'
-          className='flex min-h-screen flex-col items-center justify-center text-center'
+          className='flex min-h-screen flex-col items-center justify-center px-6 text-center'
         >
-          <h1 className='alice mb-8 font-alice text-3xl'>Ordem de Cerimónia</h1>
           <ol className='max-w-xl text-left text-lg'>
             <li className='flex gap-2'>
               <span className='w-6 font-bold'>1.</span> Chegada dos convidados
@@ -83,7 +87,7 @@ export default function HomePage() {
         </section>
         <section
           id='louvor1'
-          className='flex min-h-screen max-w-sm flex-col items-center justify-center gap-4 text-center text-base sm:text-lg md:mb-32'
+          className='flex min-h-screen max-w-sm flex-col items-center justify-center gap-4 px-6 text-center text-base sm:text-lg  md:mb-32'
         >
           <h1 className='mb-8 font-alice'>Ao Único</h1>
           <Piece bis={2}>
@@ -121,7 +125,7 @@ export default function HomePage() {
         </section>
         <section
           id='louvor2'
-          className='flex min-h-screen max-w-sm flex-col items-center justify-center gap-4 text-center text-base sm:text-lg md:mb-32'
+          className='flex min-h-screen max-w-sm flex-col items-center justify-center gap-4 px-6 text-center text-base sm:text-lg  md:mb-32'
         >
           <h1 className='mb-8 font-alice'>Digno É O Senhor</h1>
           <Piece>

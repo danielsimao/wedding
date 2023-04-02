@@ -1,5 +1,6 @@
 import { AddToCalendarButton } from 'add-to-calendar-button-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import Layout from '@/components/layout/Layout';
 import UnstyledLink from '@/components/links/UnstyledLink';
@@ -27,6 +28,8 @@ import Phone from '../../public/svg/phone.svg';
 // to customize the default configuration.
 
 export default function HomePage() {
+  const isLive = !!process.env.NEXT_PUBLIC_YOUTUBE_LIVE;
+
   return (
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
@@ -44,6 +47,30 @@ export default function HomePage() {
             alt='main'
             className='object-[65%] md:object-center'
           />
+          <div className='absolute bottom-0 mx-auto mb-10 w-full px-4 text-center'>
+            <div className='mx-auto flex max-w-lg flex-col items-center justify-center gap-4 md:flex-row'>
+              <Link
+                className='w-full flex-1 rounded-lg border-4 border-white px-4 py-2 text-center text-xl font-medium text-white transition hover:bg-white hover:text-black'
+                href='/ceremony'
+              >
+                Ordem de Cerimómia
+              </Link>
+              {process.env.NEXT_PUBLIC_YOUTUBE_LIVE && (
+                <Link
+                  href={process.env.NEXT_PUBLIC_YOUTUBE_LIVE || ''}
+                  className='relative w-full flex-1 rounded-lg border-4 border-white px-4 py-2 text-center text-xl font-medium text-white transition hover:bg-white hover:text-black'
+                >
+                  Assistir Online
+                  {isLive && (
+                    <div className='absolute right-2 top-1/2 flex -translate-y-1/2 items-center rounded-full bg-red-500 py-1 px-2 text-xs font-bold text-white'>
+                      <div className='mr-1 h-1 w-1 rounded-full bg-white'></div>
+                      <div>LIVE</div>
+                    </div>
+                  )}
+                </Link>
+              )}
+            </div>
+          </div>
         </section>
         <div className='grid grid-cols-1 grid-rows-2'>
           <DoubleTile
