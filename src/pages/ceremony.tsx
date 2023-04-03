@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import { ReactNode } from 'react';
 
+import Corintios13 from '@/components/Corintios13';
+import Joao13 from '@/components/Joao13';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
@@ -30,6 +32,21 @@ const Piece = ({ children, bis }: { children: ReactNode; bis?: number }) => (
   </div>
 );
 
+const list = [
+  { title: 'Entrada da noiva' },
+  { title: 'Boas-vindas', description: 'Oficiante Pr. Rui Simão' },
+  { title: 'Louvor', description: 'Ao Único' },
+  { title: 'Leitura Bíblica', description: 'I Coríntios 13' },
+  { title: 'Pregação', description: 'Pr. Roberto Santos' },
+  { title: 'Louvor', description: 'Digno É O Senhor' },
+  {
+    title: 'Representação Simbólica',
+    description: 'João 13:1-17 - Pr. Álvaro Ladeira',
+  },
+  { title: 'Troca das Alianças' },
+  { title: 'Oração e Declaração final' },
+];
+
 export default function HomePage() {
   return (
     <Layout>
@@ -42,52 +59,30 @@ export default function HomePage() {
         </div>
         <section
           id='home'
-          className='flex min-h-screen flex-col items-center justify-center px-6 text-center'
+          className='mt-16 flex flex-col items-center justify-center px-6 text-center'
         >
-          <ol className='max-w-xl text-left text-lg'>
-            <li className='flex gap-2'>
-              <span className='w-6 font-bold'>1.</span> Chegada dos convidados
-            </li>
-            <li className='flex gap-2'>
-              <span className='w-6 font-bold'>2.</span> Entrada da noiva
-            </li>
-            <li className='flex gap-2'>
-              <span className='w-6 font-bold'>3.</span> Boas-vindas do Oficiante
-              Pr. Rui Simão
-            </li>
-            <li className='flex gap-2'>
-              <span className='w-6 font-bold'>4.</span> Louvor - Ao Único
-            </li>
-            <li className='flex gap-2'>
-              <span className='w-6 font-bold'>5.</span> Leitura bíblica dos
-              Noivos - I Coríntios 13
-            </li>
-            <li className='flex gap-2'>
-              <span className='w-6 font-bold'>6.</span> Pregação pelo Pr.
-              Roberto Santos
-            </li>
-            <li className='flex gap-2'>
-              <span className='w-6 font-bold'>7.</span> Louvor - Digno é o
-              Senhor
-            </li>
-            <li className='flex gap-2 '>
-              <span className='w-6 font-bold'>8.</span> Lavagem Símbolica dos
-              pés baseada em João 13:1-17
-            </li>
-            <li className='flex gap-2'>
-              <span className='w-6 font-bold'>9.</span>Troca das alianças
-            </li>
-            <li className='flex gap-2'>
-              <span className='w-6 font-bold'>10.</span> Oração final
-            </li>
-            <li className='flex gap-2'>
-              <span className='w-6 font-bold'>11.</span> Declaração final
-            </li>
+          <ol className='flex max-w-xl flex-col gap-2 text-left'>
+            {list.map((item, key) => (
+              <li key={key} className='flex items-center gap-4'>
+                <span className='text-md flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#ba9f9c] font-alice'>
+                  {key + 1}.
+                </span>
+                <div
+                  className={clsx(
+                    'flex flex-col',
+                    item.description ? 'justify-start' : 'justify-center'
+                  )}
+                >
+                  <p className='text-md font-semibold'>{item.title}</p>
+                  <p className='text-sm'>{item.description}</p>
+                </div>
+              </li>
+            ))}
           </ol>
         </section>
         <section
           id='louvor1'
-          className='flex min-h-screen max-w-sm flex-col items-center justify-center gap-4 px-6 text-center text-base sm:text-lg  md:mb-32'
+          className='mt-24 flex min-h-screen max-w-md flex-col items-center justify-center gap-4 px-6 text-center text-base sm:text-lg'
         >
           <h1 className='mb-8 font-alice'>Ao Único</h1>
           <Piece bis={2}>
@@ -123,9 +118,13 @@ export default function HomePage() {
             <p>Consagramos todo o nosso ser a Ti</p>
           </Piece>
         </section>
+        <section id='corintios 13' className='mt-24 max-w-5xl px-6'>
+          <h1 className='mb-8 text-center font-alice'>I Coríntios 13</h1>
+          <Corintios13 />
+        </section>
         <section
           id='louvor2'
-          className='flex min-h-screen max-w-sm flex-col items-center justify-center gap-4 px-6 text-center text-base sm:text-lg  md:mb-32'
+          className='mt-24 flex max-w-sm flex-col items-center justify-center gap-4 px-6 text-center text-base sm:text-lg'
         >
           <h1 className='mb-8 font-alice'>Digno É O Senhor</h1>
           <Piece>
@@ -153,6 +152,10 @@ export default function HomePage() {
             <p>Digno é o Senhor</p>
             <p>Digno é o Senhor</p>
           </Piece>
+        </section>{' '}
+        <section id='joao 13' className='my-24 max-w-5xl px-6'>
+          <h1 className='mb-8 text-center font-alice'>João 13:1-17</h1>
+          <Joao13 />
         </section>
       </main>
     </Layout>

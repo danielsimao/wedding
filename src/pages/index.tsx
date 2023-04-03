@@ -1,4 +1,5 @@
 import { AddToCalendarButton } from 'add-to-calendar-button-react';
+import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -35,7 +36,10 @@ export default function HomePage() {
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
       <main className='-mt-[68px]'>
-        <section id='home' className='relative h-screen max-h-screen md:mb-32'>
+        <section
+          id='home'
+          className='relative h-[100dvh] max-h-[100dvh] md:mb-32'
+        >
           <Image
             src='/images/hero.png'
             fill
@@ -47,27 +51,34 @@ export default function HomePage() {
             alt='main'
             className='object-[65%] md:object-center'
           />
-          <div className='absolute bottom-0 mx-auto mb-10 w-full px-4 text-center'>
-            <div className='mx-auto flex max-w-lg flex-col items-center justify-center gap-4 md:flex-row'>
+          <div className='absolute bottom-0 mx-auto mb-10 w-full px-12 text-center'>
+            <div
+              className={clsx(
+                'mx-auto flex flex-col items-center justify-center gap-4 md:flex-row',
+                isLive ? 'max-w-xl' : 'max-w-sm'
+              )}
+            >
               <Link
-                className='w-full flex-1 rounded-lg border-4 border-white px-4 py-2 text-center text-xl font-medium text-white transition hover:bg-white hover:text-black'
+                className='w-full flex-1 whitespace-nowrap rounded-lg border-4 border-white px-4 py-2 text-center text-xl font-medium text-white transition hover:bg-white hover:text-black'
                 href='/ceremony'
               >
                 Ordem de Cerimómia
               </Link>
               {process.env.NEXT_PUBLIC_YOUTUBE_LIVE && (
-                <Link
+                <a
+                  target='_blank'
                   href={process.env.NEXT_PUBLIC_YOUTUBE_LIVE || ''}
-                  className='relative w-full flex-1 rounded-lg border-4 border-white px-4 py-2 text-center text-xl font-medium text-white transition hover:bg-white hover:text-black'
+                  className='relative w-full flex-1 whitespace-nowrap rounded-lg border-4 border-transparent bg-white px-4 py-2 text-center text-xl font-medium text-black transition hover:border-white hover:bg-transparent hover:text-white'
+                  rel='noreferrer'
                 >
                   Assistir Online
                   {isLive && (
-                    <div className='absolute right-2 top-1/2 flex -translate-y-1/2 items-center rounded-full bg-red-500 py-1 px-2 text-xs font-bold text-white'>
+                    <div className='absolute right-2 top-1/2 hidden -translate-y-1/2 items-center rounded-full bg-red-500 px-[.5rem] text-[.675rem] font-bold text-white sm:flex'>
                       <div className='mr-1 h-1 w-1 rounded-full bg-white'></div>
                       <div>LIVE</div>
                     </div>
                   )}
-                </Link>
+                </a>
               )}
             </div>
           </div>
