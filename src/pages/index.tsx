@@ -277,8 +277,8 @@ export default function HomePage() {
                   <li className='flex items-center gap-2'>
                     <MBWay /> 916 961 068
                   </li>
-                  <li className='flex items-center gap-2'>
-                    <Bank /> PT5003300002398002700436
+                  <li className='flex items-center gap-2 whitespace-nowrap'>
+                    <Bank /> PT50 0033 0000 2398 0027 0043 6
                   </li>
                 </ul>
               </div>
